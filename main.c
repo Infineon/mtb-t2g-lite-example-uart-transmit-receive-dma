@@ -98,19 +98,19 @@ int main(void)
 
     cy_stc_sysint_t KIT_UART_INT_cfg =
     {
-        .intrSrc = ( (NvicMux3_IRQn << 16) | KIT_UART_IRQ ),
+        .intrSrc = ( (NvicMux3_IRQn << CY_SYSINT_INTRSRC_MUXIRQ_SHIFT) | KIT_UART_IRQ ),
         .intrPriority = 7u,
     };
 
     cy_stc_sysint_t RX_DMA_INT_cfg =
     {
-        .intrSrc      = ( (NvicMux3_IRQn << 16) | (IRQn_Type)RxDma_IRQ ),
+        .intrSrc      = ( (NvicMux3_IRQn << CY_SYSINT_INTRSRC_MUXIRQ_SHIFT) | (IRQn_Type)RxDma_IRQ ),
         .intrPriority = 6u,
     };
 
     cy_stc_sysint_t TX_DMA_INT_cfg =
     {
-        .intrSrc      = ( (NvicMux2_IRQn << 16) | (IRQn_Type)TxDma_IRQ ),
+        .intrSrc      = ( (NvicMux2_IRQn << CY_SYSINT_INTRSRC_MUXIRQ_SHIFT) | (IRQn_Type)TxDma_IRQ ),
         .intrPriority = 6u,
     };
 
@@ -146,8 +146,6 @@ int main(void)
     uart_error = 0;
     rx_dma_done = 0;
 
-    /* Disable D cache because DMA also reads descriptor in the SRAM */
-    SCB_DisableDCache();
     __enable_irq();
  
     while (1)

@@ -1,3 +1,5 @@
+<img src="./images/IFX_LOGO_600.gif" align="right" width="150"/>
+
 # TRAVEO™ T2G MCU: UART transmit receive with DMA
 
 This code example demonstrates the UART transmit and receive operation in TRAVEO™ T2G using DMA. The application uses a serial terminal to read data and echoes what is received. UART is configured to perform both transmit and receive operations.
@@ -6,21 +8,22 @@ This code example demonstrates the UART transmit and receive operation in TRAVEO
 
 ## Requirements
 
-- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
+- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.1)
 - Programming language: C
-- Associated parts: [TRAVEO™ T2G body high MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/)
+- Associated parts: [TRAVEO™ T2G body entry MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt2bl-series/)
+
 
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
-- GNU Arm&reg; embedded compiler v10.3.1 (`GCC_ARM`) - Default value of `TOOLCHAIN`
+- GNU Arm&reg; embedded compiler v11.3 (`GCC_ARM`) - Default value of `TOOLCHAIN`
 - Arm&reg; compiler v6.16 (`ARM`)
 - IAR C/C++ compiler v9.30.1 (`IAR`)
 
 
 ## Supported kits (make variable 'TARGET')
 
-- TRAVEO™ T2G body high evaluation kit (`KIT_T2G-B-H_LITE`) - Default value of `TARGET`
+- [TRAVEO™ T2G body entry evaluation kit](https://www.infineon.com/cms/en/product/evaluation-boards/kit_t2g-b-e_lite/) (`KIT_T2G-B-E_LITE`) - Default value of `TARGET`
 
 ## Hardware setup
 
@@ -76,10 +79,10 @@ Argument | Description | Required/optional
 
 <br />
 
-The following example will clone the "[mtb-t2g-lite-example-uart-transmit-receive-dma](https://github.com/Infineon/mtb-t2g-lite-example-uart-transmit-receive-dma)" application with the desired name "PdlUartTxRxDma" configured for the *KIT_T2G-B-H_LITE* BSP into the specified working directory, *C:/mtb_projects*:
+The following example will clone the "[mtb-t2g-lite-example-uart-transmit-receive-dma](https://github.com/Infineon/mtb-t2g-lite-example-uart-transmit-receive-dma)" application with the desired name "PdlUartTxRxDma" configured for the *KIT_T2G-B-E_LITE* BSP into the specified working directory, *C:/mtb_projects*:
 
    ```
-   project-creator-cli --board-id KIT_T2G-B-H_LITE --app-id mtb-t2g-lite-example-uart-transmit-receive-dma --user-app-name PdlUartTxRxDma --target-dir "C:/mtb_projects"
+   project-creator-cli --board-id KIT_T2G-B-E_LITE --app-id mtb-t2g-lite-example-uart-transmit-receive-dma --user-app-name PdlUartTxRxDma --target-dir "C:/mtb_projects"
    ```
 
 **Note:** The project-creator-cli tool uses the `git clone` and `make getlibs` commands to fetch the repository and import the required libraries. For details, see the "Project creator tools" section of the [ModusToolbox&trade; software user guide](https://www.infineon.com/ModusToolboxUserGuide) (locally available at *{ModusToolbox&trade; software install directory}/docs_{version}/mtb_user_guide.pdf*).
@@ -145,12 +148,12 @@ For a list of supported IDEs and more details, see the "Exporting to IDEs" secti
 
      From the terminal, execute the `make program` command to build and program the application using the default toolchain to the default target. The default toolchain and target are specified in the application's Makefile but you can override those values manually:
       ```
-      make program TARGET=<BSP> TOOLCHAIN=<toolchain>
+      make program TOOLCHAIN=<toolchain>
       ```
 
       Example:
       ```
-      make program TARGET=KIT_T2G-B-H_LITE TOOLCHAIN=GCC_ARM
+      make program TOOLCHAIN=GCC_ARM
       ```
    </details>
 
@@ -198,9 +201,9 @@ The following table lists the resources used in this example and their purpose.
 Resources  | Links
 -----------|----------------------------------
 Application notes | AN235305 - GETTING STARTED WITH TRAVEO™ T2G FAMILY MCUS IN MODUSTOOLBOX™
-Training | [TRAVEO™ T2G Serial Communication Block (SCB)](https://www.infineon.com/dgdl/Infineon-Traveo_II_Serial_Communication_Block_(SCB)-Training-v05_00-EN.pdf?fileId=8ac78c8c7d718a49017d9f6cf3cc3b29) <br> [TRAVEO™ T2G Direct Memory Access (DMA)](https://www.infineon.com/dgdl/Infineon-Traveo_II_Direct_Memory_Access_(DMA)-Training-v07_00-EN.pdf?fileId=8ac78c8c7d718a49017d9f6c75883ae9)
-Code examples  | [TRAVEO™ T2G MCU examples](https://github.com/orgs/Infineon/repositories?q=mtb-t2g-&type=all&language=&sort=) on GitHub
-Device documentation | [Device datasheet](https://www.cypress.com/documentation/datasheets/cyt4bf-datasheet-32-bit-arm-cortex-m7-microcontroller-traveo-ii-family) <br> [Architecture Technical reference manuals (TRM)](https://www.cypress.com/documentation/technical-reference-manuals/traveo-ii-automotive-body-controller-high-family) <br> [Registers TRM](https://www.cypress.com/documentation/technical-reference-manuals/traveo-t2g-tvii-b-h-8m-registers-body-controller-high)
+Training | [TRAVEO™ T2G Serial Communication Block (SCB)](https://www.infineon.com/dgdl/?fileId=8ac78c8c7d718a49017d9f6cf3cc3b29) <br> [TRAVEO™ T2G Direct Memory Access (DMA)](https://www.infineon.com/dgdl/?fileId=8ac78c8c7d718a49017d9f6c75883ae9)
+Device documentation | [Device datasheet](https://www.infineon.com/dgdl/?fileId=8ac78c8c82ce566401836c4d5e9a46c8) <br> [Architecture Technical reference manuals (TRM)](https://www.infineon.com/dgdl/?fileId=5546d462766cbe860176804ea8d27e9b) <br>
+Development kits | [KIT_T2G-B-E_LITE](https://www.infineon.com/cms/en/product/evaluation-boards/kit_t2g-b-e_lite/)
 Libraries on GitHub  | [mtb-pdl-cat1](https://github.com/Infineon/mtb-pdl-cat1) – Peripheral driver library (PDL)  <br> [mtb-hal-cat1](https://github.com/Infineon/mtb-hal-cat1) – Hardware abstraction layer (HAL) library <br> [retarget-io](https://github.com/Infineon/retarget-io) – Utility library to retarget STDIO messages to a UART port
 Middleware on GitHub  | [mcu-middleware](https://github.com/Infineon/modustoolbox-software) – Links to all MCU middleware
 Tools  | [Eclipse IDE for ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use software and tools enabling rapid development with Infineon MCUs, covering applications from embedded sense and control to wireless and cloud-connected systems using AIROC&trade; Wi-Fi and Bluetooth® connectivity devices.
@@ -211,7 +214,7 @@ Tools  | [Eclipse IDE for ModusToolbox&trade; software](https://www.infineon.com
 
 Infineon provides a wealth of data at www.infineon.com to help you select the right device, and quickly and effectively integrate it into your design.
 
-For TRAVEO™ T2G body high MCU devices, see [TRAVEO™ T2G CYT4BF Series](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt4bf-series/).
+For TRAVEO™ T2G body entry MCU devices, see [TRAVEO™ T2G CYT2BL Series](https://www.infineon.com/cms/en/product/microcontroller/32-bit-traveo-t2g-arm-cortex-microcontroller/32-bit-traveo-t2g-arm-cortex-for-body/traveo-t2g-cyt2bl-series/).
 
 
 ## Document history
@@ -219,6 +222,7 @@ For TRAVEO™ T2G body high MCU devices, see [TRAVEO™ T2G CYT4BF Series](https
 | Version | Description of change |
 | ------- | --------------------- |
 | 1.0.0   | New code example with ModusToolbox&trade; 3.0     |
+| 1.1.0   | Removed support for KIT_T2G-B-H_LITE <br> Added support for KIT_T2G-B-E_LITE |
 <br />
 
 ---------------------------------------------------------
